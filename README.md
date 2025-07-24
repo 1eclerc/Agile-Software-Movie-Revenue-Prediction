@@ -86,16 +86,6 @@ joblib
 
 ---
 
-## 🌐 Screenshots (optional)
-
-You can include screenshots of:
-- Login page
-- Admin panel
-- Revenue prediction form
-- CSV view
-
----
-
 ## 👥 Team & Contributors
 
 - [@1eclerc](https://github.com/1eclerc)
