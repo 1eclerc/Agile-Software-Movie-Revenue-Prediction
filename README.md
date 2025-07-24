@@ -1,72 +1,110 @@
-# Movie Data Search and Save
+# 🎬 Movie Revenue Predictor with Flask and TMDB API
 
-A simple web application for searching and saving movie data using the TMDb (The Movie Database) API.
+This project is a web-based application that allows users to explore movie metadata and predict box office revenue using a machine learning model. It utilizes the TMDB API to fetch movie details and an XGBoost regression model to estimate potential revenue based on popularity and runtime.
 
-## Table of Contents
+---
 
-- [Introduction](#introduction)
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [File Structure](#file-structure)
-- [Contributing](#contributing)
-- [License](#license)
+## 🚀 Features
 
-## Introduction
+- 🔐 Login system with basic role-based access (admin/user)
+- 🔍 Movie search via TMDB API
+- 📊 Revenue prediction using a pre-trained XGBoost model
+- 🧹 Data cleaning and text sanitization for cleaner display
+- 📁 Save and display movie data in CSV format or on web table
+- 🧠 Admins can filter by genre/year and choose append/overwrite modes
 
-This web application allows users to search for movies based on various criteria such as the number of movies, release year, genre, etc. The application uses the TMDb API to fetch movie data and saves the results in a CSV file. The user interface provides a simple form for input parameters and displays the search results.
+---
 
-## Features
+## 🛠️ Tech Stack
 
-- Search for movies based on criteria like number, release year, and genre.
-- Save movie data to a CSV file.
-- User-friendly web interface.
-- Easy customization for additional features.
+- **Backend**: Python, Flask
+- **Frontend**: HTML (Jinja templates)
+- **Machine Learning**: XGBoost, joblib
+- **External API**: [The Movie Database (TMDB)](https://www.themoviedb.org/)
+- **Others**: NumPy, Requests, CSV, RegEx
 
-## Getting Started
+---
 
-### Prerequisites
+## 📂 Project Structure
 
-Before you begin, ensure you have met the following requirements:
+```
+.
+├── main.py              # Flask application entry point
+├── config.py            # Contains TMDB API key
+├── xgb_revenue_model.pkl# Pre-trained XGBoost model
+├── templates/           # HTML templates (login, index, user panel, etc.)
+├── static/              # (Optional) For styles, images, etc.
+└── output.csv           # Saved movie data (created at runtime)
+```
 
-- Python installed
-- TMDb API Key (Get it from [TMDb](https://www.themoviedb.org/documentation/api))
+---
 
-### Installation
+## 🧪 How It Works
 
-1. Clone the repository:
+1. **Login** as either an admin or user.
+2. **Admins** can search movies by genre/year and choose how data is saved.
+3. Movie data is **fetched from TMDB**, cleaned, and displayed or saved to CSV.
+4. Revenue is predicted using an ML model trained on popularity and runtime.
 
-   ```bash
-   git clone https://github.com/esatarslan/agent_based_data_acq_tmdb.git
-   ```
-   ```
-   cd movie-data-search
-   ```
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-4. Configure API Key:
-   Obtain a TMDb API Key and update it in the config.py file:
-   ```
-   api_key = "your_tmdb_api_key"
-   ```
-## Usage
-Run the application:
+---
 
-  ```bash
-  python main.py
-  ```
-  Open your web browser and go to http://localhost:8080/ to access the application.
+## 🧠 Model Info
 
-  Use the form to input search parameters and click "Search and Save" to fetch and save movie data.
-## File Structure
-main.py: Main application file.  
-config.py: Configuration file for API key.  
-templates/: HTML templates for the web interface.  
-static/: Static files such as CSS styles.  
+The `xgb_revenue_model.pkl` file contains a trained XGBoost regression model. It takes:
 
-## License
-This project is licensed under the [MIT License](/license.md).
+- `popularity` (float)
+- `runtime` (float)
+
+as input features to predict the estimated **box office revenue**.
+
+---
+
+## 🧰 Requirements
+
+Install required packages via pip:
+
+```bash
+pip install -r requirements.txt
+```
+
+**Example `requirements.txt`:**
+```
+flask
+requests
+numpy
+joblib
+```
+
+---
+
+## 🔐 Default Credentials
+
+| Username | Password   | Role  |
+|----------|------------|-------|
+| admin    | adminpass  | Admin |
+| user     | userpass   | User  |
+
+---
+
+## 🌐 Screenshots (optional)
+
+You can include screenshots of:
+- Login page
+- Admin panel
+- Revenue prediction form
+- CSV view
+
+---
+
+## 👥 Team & Contributors
+
+- [@1eclerc](https://github.com/1eclerc)
+- [@ishowkenobi](https://github.com/ishowkenobi)
+
+---
+
+## 📝 License
+
+This project is for educational purposes.
+
+---
