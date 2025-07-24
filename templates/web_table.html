@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Results</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        img {
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Movie Results</h2>
+    <table>
+        <tr>
+            {% for key in movies[0].keys() %}
+                <th>{{ key }}</th>
+            {% endfor %}
+        </tr>
+        {% for movie in movies %}
+            <tr>
+                {% for key, val in movie.items() %}
+                    {% if key == 'Poster URL' %}
+                        <td><img src="{{ val }}" alt="poster"></td>
+                    {% else %}
+                        <td>{{ val }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
